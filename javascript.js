@@ -397,4 +397,62 @@ let myTestArr = ["a", "b", "c"];
 // log(myTestArr.splice(1,1));     //["b"]
 // log(myTestArr);                 //["a", "c"]
 
+// -------------------- --------------------
+//Bonus
+// [65,...90]
+//  [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]
+//  charCodeAt()
+//  fromCharCode()
 
+// range: 65-90
+
+function root13(str) {
+    let arr = str.split("");
+    let result = [];
+    arr.map(x=> {
+        let next = x.charCodeAt();
+        log(next);
+        (next >=65 & next < 78) ? result.push(next+=13) : false;
+        next >= 78 ? result.push(next-=13) : false;
+        // result.push(next);
+    })
+    log(...result)
+    log(String.fromCharCode(...result));
+}
+
+// root13("SERR PBQR PNZC");  //FREE CODE CAMP   vyresit: e,b,c
+// root13("A");
+
+// function fibones(x,y,z) {
+//     let result = [x,y];
+//     let vars = [x,y];
+//     for (i=0; i<z; i++) {
+//         let next = (vars.reduce((a,b)=> a+=b));
+//         result.push(next);
+//         vars.push(next);
+//         vars.shift();
+//     }
+//     console.log(result);
+// }
+
+// fibones(0,1,10);
+
+
+// LeedCode
+
+// -------------------- --------------------
+//001 TwoSum
+
+function twoSum(nums, target) {
+    let result;
+    nums.map(x=> {
+        for (i=0; i<nums.length; i++) {
+            if(x+nums[i]==target & x !=nums[i]) {
+                result = [nums.indexOf(x), nums.indexOf(nums[i])];
+            }
+        }
+    })
+    log(result.sort());
+}
+
+twoSum([5,9,3,4,7], 10)  // output should be: [2,4]
